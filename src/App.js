@@ -42,14 +42,20 @@ function App() {
   }
   const openmail=()=>{
     setshowmail(!showmail)
+    setlist(false)
+    setnotif(false)
    
   }
   const openlist=()=>{
     setlist(!showlist)
+    setnotif(false)
+    setshowmail(false)
    
   }
   const opennotif=()=>{
     setnotif(!shownotif)
+    setshowmail(false)
+    setlist(false)
   }
   
   return (

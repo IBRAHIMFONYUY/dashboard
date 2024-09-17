@@ -27,7 +27,7 @@
   --nav-bar-color:white;
   --graph-color:white;
 }
-.root{
+.light{
   --background-color:rgb(243, 244, 247) ;
   --text-color:black;
   --nav-bar-color:white;
@@ -137,9 +137,9 @@ code {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: scroll;
   display: block;
-  transition: ease-in-out 0.4s;
+  transition: ease-in-out 1s;
   box-shadow: 0 0 10px rgb(65, 65, 65);
-  right: 1px;
+  right: -10px;
   z-index: 100;
 }
 .left-nav.open{
@@ -147,7 +147,7 @@ code {
   
 }
 .left-nav.close{
-  right: -300px;
+  right: -500px;
 }
 
 .navbar{
@@ -324,56 +324,87 @@ input{
 .home{
   justify-content: center;
   display: flex;
+  padding: 10px;
+  margin: 20px;
   
 }
 .graph-cnt-1{
   display: block;
 }
 .graph-1{
-  height: 240px;
-  width: 350px;
+  height: 280px;
+  width: 290px;
   border-radius: 10px;
   background-color: var(--graph-color);
-  margin-right: 10px;
+  margin-right: 5px;
   box-shadow: 0 0 2px black;
+  padding: 10px;
+}
+.bar-chart{
+  height: 70%;
+  width: 100%;
+  padding: 10px;
+  
 }
 .sub-graph-cnt-1{
-  margin-top: 50px;
+  margin-top: 25px;
   display: flex;
+  
 }
 .sub-graph-1{
-  height: 130px;
-  width: 150px;
+  height: 100px;
+  width: 130px;
   border-radius: 10px;
   background-color: var(--graph-color);
-  margin-right: 20px;
+  margin-right: 5px;
   box-shadow: 0 0 2px black;
+  padding: 10px;
 
 }
 .sub-graph-2{
-  height: 130px;
-  width: 150px;
+  height: 100px;
+  width: 130px;
   border-radius: 10px;
   background-color: var(--graph-color);
-  margin-left: 20px;
+  margin-left: 5px;
   box-shadow: 0 0 2px black;
+  padding: 10px;
 }
 .graph-cnt-2{
-  height: 420px;
-  width: 600px;
+  height: 450px;
+  width: 800px;
   border-radius: 10px;
   background-color: var(--graph-color);
   margin-left: 10px;
   box-shadow: 0 0 2px black;
+  padding: 2px;
+}
+.users-cnt-right{
+  display: block;
+  margin-left: 5px;
+}
+.users-block{
+  height: 150px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: var(--graph-color);
+  margin-left: 20px;
+  box-shadow: 0 0 2px black;
+  padding: 10px;
+}
+.users-main-cnt{
+  display: flex;
 }
 .users-cnt{
   
   background-color:var(--graph-color);
-  padding: 20px;
-  margin: 30px;
+  width: 75%;
+  padding: 10px;
+  
   box-shadow: 0 0 2px black;
-  border-radius: 10px;
+  border-radius: 5px;
 }
+
 .users-btn{
   width: 150px;
   height: 40px;
@@ -399,7 +430,7 @@ input{
 }
 .users-main{
   height: 100px;
-  padding: 10px;
+  
   border-top: solid 1px rgb(204, 204, 204);
   border-bottom:solid 1px rgb(204, 204, 204) ;
 }

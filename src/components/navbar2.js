@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Search, Menu, Bell, MailOpen, LayoutList, Sun, LayoutGrid, Moon, X } from "lucide-react";
 const StickNav=({opennav, openleftnav, openmail, openlist, opennotif })=>{
-    const[theme, settheme]=useState(false)
+    const[theme, settheme]=useState(localStorage.getItem('theme')|| 'root')
     
-    const changetheme=(color)=>{
-        settheme(!theme)
+    const changetheme=()=>{
+        const newtheme = theme === "root" ? 'dark-theme':'root'
+        
+        settheme(newtheme)
+        
+        localStorage.setItem('theme', newtheme)
         
     }
     useEffect(()=>{
         if(theme){
-            document.body.classList.add('dark-theme')
-        }else{
-            document.body.classList.remove('dark-theme')
+        
+            document.body.classList.add(theme)
         }
+        
+        
+        
     },[theme])
     return(
         <div className="stick-navbar">
@@ -28,9 +34,9 @@ const StickNav=({opennav, openleftnav, openmail, openlist, opennotif })=>{
                 </div>
                 
 
-                <div className="nav-user-icons sun" style={{color: theme ? 'blue':'',
+                <div className="nav-user-icons sun" style={{color: theme==='root' ? '':'blue',
                     
-                }} onClick={changetheme}>{theme ? <Moon/>:<Sun/>}</div>
+                }} onClick={changetheme}>{theme === 'root' ? <Sun/>:<Moon/>}</div>
                 <div className="nav-user-icons" onClick={openleftnav}><LayoutGrid/></div>
             </div>
             
