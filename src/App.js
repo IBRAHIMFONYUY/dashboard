@@ -14,6 +14,7 @@ import Notifications from "./components/notification";
 import ChartPage from "./components/charts";
 import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
+import Watermark from "./components/watermark";
 
 function App() {
   const [theme, settheme] = useState(false);
@@ -72,18 +73,17 @@ function App() {
             openmail={openmail}
             openlist={openlist}
             opennotif={opennotif}
+            shownotif={shownotif}
+            showlist={showlist}
+            showmail={showmail}
           />
         
-        <OutsideClickHandler onOutsideClick={()=>{
-            setlist(false)
-            setnotif(false)
-            setshowmail(false)
-        }}>
+        
           <Notifications shownotif={shownotif} />
           <LayoutList showlist={showlist} />
           <IconsNav showmail={showmail} />
           
-        </OutsideClickHandler>
+        
         <OutsideClickHandler
           onOutsideClick={() => {
             setshowleftnav(false);
@@ -91,6 +91,7 @@ function App() {
         >
         <LeftNav hideleftnav={hideleftnav} showleftnav={showleftnav} />
         </OutsideClickHandler>
+        <Watermark/>
         <div className="section">
           <Routes>
             <Route element={<Home />} path="/" />

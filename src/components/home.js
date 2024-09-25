@@ -98,7 +98,7 @@ const Home = () => {
             <div className="user-lg">
               <h1>Traffic</h1>January 01, 2023 - December 31, 2023
             </div>
-            <Bar className="bar-chart" data={data}  />
+            <Bar className="bar-chart" data={data} />
           </div>
         </div>
       </div>
@@ -145,15 +145,25 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="users-country">{user.country}</div>
-                <div className="users-usage">{user.usage}</div>
-                <div className="users-activity">{user.activity}</div>
+                <div className="users-usage">
+                <div className="usage-content"><b>{user.usage}</b> {user.interval}</div>
+                  <div className="usage-bar">
+                    
+                    <div className="users-bar" style={{width:user.usage, background: user.bg}}></div>
+                  </div>
+                </div>
+                <div className="users-activity"><b>{user.activity}</b></div>
               </div>
             ))}
           </div>
         </div>
         <div className="users-cnt-right">
-          <div className="users-block"><Line className="users-block-charts" data={data_2}/></div>
-          <div className="users-block"><Bar className="users-block-charts" data={data_2}/></div>
+          <div className="users-block">
+            <Line className="users-block-charts" data={data_2} />
+          </div>
+          <div className="users-block">
+            <Bar className="users-block-charts" data={data_2} />
+          </div>
           <div className="users-block mid">this is it</div>
         </div>
       </div>

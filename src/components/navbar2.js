@@ -11,7 +11,7 @@ import {
     Moon,
     X,
 } from "lucide-react";
-const StickNav = ({ opennav, openleftnav, openmail, openlist, opennotif }) => {
+const StickNav = ({ opennav, openleftnav, openmail, openlist, opennotif, shownotif, showlist, showmail }) => {
     const [theme, settheme] = useState(localStorage.getItem("theme") || "root");
 
     const changetheme = () => {
@@ -28,7 +28,7 @@ const StickNav = ({ opennav, openleftnav, openmail, openlist, opennotif }) => {
     return (
         <div className="stick-navbar">
             <div className="left">
-                <div className="hamburger" onClick={opennav}>
+                <div className="hamburger" onClick={opennav} >
                     <Menu />
                 </div>
                 <div className="search-bar">
@@ -38,13 +38,13 @@ const StickNav = ({ opennav, openleftnav, openmail, openlist, opennotif }) => {
             </div>
             <div className="nav-user">
                 <div className="nav-1">
-                    <div className="nav-user-icons" onClick={opennotif} >
+                    <div className="nav-user-icons" onClick={opennotif} style={{color: shownotif ? 'var(--text-color)':''}} >
                         <Bell />
                     </div>
-                    <div className="nav-user-icons" onClick={openlist}>
+                    <div className="nav-user-icons" onClick={openlist} style={{color: showlist ? 'var(--text-color)':''}}>
                         <LayoutList />
                     </div>
-                    <div className="nav-user-icons" onClick={openmail}>
+                    <div className="nav-user-icons" onClick={openmail} style={{color: showmail ? 'var(--text-color)':''}}>
                         <MailOpen />
                     </div>
                 </div>

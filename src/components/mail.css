@@ -1,0 +1,65 @@
+
+  .massages{
+    padding: 5px;
+    
+  }
+  .user:hover{
+    background-color: var(--hover);
+    cursor: pointer;
+  }
+  .message-box{
+    
+    width: 100%;
+    border-radius: 10px;
+    margin: 1px;
+  }
+  
+  .message-body{
+    padding:1px 25px  ;
+    padding-bottom: 2;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    
+    
+  }
+  .user-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    margin: 3px;
+    font-size: 15px;
+  }
+  .img-mail{
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    margin-right: 10px;
+    padding: 0; 
+    
+  }
+  .span-mail{
+    color: rgb(179, 176, 176);
+    margin-left: 10px;
+  }
+  .reply{
+    padding-right: 10px; 
+    display: flex; 
+    margin: 5px; 
+    align-items: 
+    center; 
+    color: rgb(5, 73, 173);
+    cursor: pointer;
+  }
+  h3{
+    display: flex; 
+    margin: 5px; 
+    align-items: center;
+  }
+  
+  
+ 
+  
+ 
+ 
+  
