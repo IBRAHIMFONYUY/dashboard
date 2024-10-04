@@ -60,9 +60,29 @@ code {
   display: grid;
   grid-template-columns: 1fr 3.65fr;
 }
+.App.grid{
+  grid-template-columns: 0.2fr 4fr;
+  .stick-navbar{
+    width: 94%;
+  }
+  .navbar{
+    z-index: 100;
+  }
+  .create-user{
+    width: 100%;
+  }
+  .graph-cnt-2{
+    width: 100%;
+  }
+  
+}
+.App.not-grid{
+  grid-template-columns: 1fr 3.65fr;
+  
+}
 .nav-notification{
-  height:75%;
-  width: 16%;
+  height:fit-content;
+  width: fit-content;
   background-color: var(--graph-color);
   position: fixed;
   
@@ -110,8 +130,8 @@ code {
 }
 
 .nav-list{
-  height:52%;
-  width: 17%;
+  height:fit-content;
+  width: fit-content;
   background-color: var(--graph-color);
   position: fixed;
   overflow: hidden;
@@ -148,16 +168,16 @@ code {
   transition: ease-in-out 0.2s;
 }
 .nav-mail{
-  height:88%;
-  width: 30%;
+  height:fit-content;
+  width: fit-content;
   background-color: var(--graph-color);
   position: fixed;
-  
+  padding-bottom: 10px;
   border-radius: 10px;
   margin-top: 50px;
   text-decoration: none;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: scroll;
+  overflow: hidden;
   display: block;
   transition: ease-in-out 0.4s;
   box-shadow: 0 0 10px rgb(65, 65, 65);
@@ -254,6 +274,44 @@ code {
   display: block;
   transition: ease-in-out 0.8s;
 }
+.navbar.shrink{
+  width: 5%;
+  padding: 5px;
+  justify-content: left;
+  overflow-x: hidden;
+  span, .project-name, .separetor, .down{
+    display: none;
+  }
+  .dropdown-cnt{
+    margin: 10px;
+    padding: 10px;
+  }
+  .navbar-links{
+    width: 50%;
+  }
+  
+  
+}
+.navbar.shrink:hover{
+  width: 20%;
+  
+  padding: 10px;
+  justify-content: left;
+  overflow-x: hidden;
+  span, .project-name, .separetor, .down{
+    display: inline-block;
+  }
+  .dropdown-cnt{
+    margin: 10px;
+    padding: 10px;
+  }
+  .navbar-links{
+    width: 95%;
+  }
+}
+.navbar.no-shrink{
+  width: 20%;
+}
 span{
   margin: 6px;
   padding-left: 15px;
@@ -286,7 +344,7 @@ span{
   cursor: pointer;
   transition: ease-in-out 0.1s;
   height: 30px;
-  width: 90%;
+  width: 95%;
 
 }
 
@@ -432,20 +490,21 @@ input{
   margin: 15px;
 }
 .home{
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
-  
+  width: 100%;
+ 
   
 }
 .graph-cnt-1{
   display: block;
 }
 .graph-1{
-  height: 280px;
-  width: 290px;
+  height: 300px;
+  width: 90%;
   border-radius: 10px;
   background-color: var(--graph-color);
-  margin-right: 5px;
+  
   box-shadow: var(--box-shadow);
   padding: 10px;
 }
@@ -462,7 +521,7 @@ input{
 }
 .sub-graph-1{
   height: 100px;
-  width: 130px;
+  width: 41%;
   border-radius: 10px;
   background-color: var(--graph-color);
   margin-right: 5px;
@@ -472,7 +531,7 @@ input{
 }
 .sub-graph-2{
   height: 100px;
-  width: 130px;
+  width: 41%;
   border-radius: 10px;
   background-color: var(--graph-color);
   margin-left: 5px;
@@ -480,11 +539,11 @@ input{
   padding: 10px;
 }
 .graph-cnt-2{
-  height: 450px;
-  width: 800px;
+  height: 460px;
+  width: 60%;
   border-radius: 10px;
   background-color: var(--graph-color);
-  margin-left: 10px;
+  
   box-shadow: var(--box-shadow);
   padding: 2px;
 }
@@ -545,7 +604,7 @@ input{
   padding: 10px;
   margin: 10px;
   margin-top: 20px;
-  width: 95%;
+  width: 700px;
 }
 .users-main{
   height: 70px;
@@ -679,8 +738,71 @@ input{
   justify-self: center;
   align-self: center;
   font-weight: bolder;
+  width: 80%;
+}
+.create-user{
+  display: none;
+  justify-content: center ;
+  position:fixed;
+  width: 78%;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(173, 173, 173);
+  transition: ease-in-out 1s;
+  cursor: pointer;
+}
+.create-user.open{
+  display: flex;
+}
+.create-user.close{
+  display: none;
+}
+
+.form-cnt{
+  
+  opacity: none;
+  width: 380px;
+   background: var(--graph-color);
+  box-shadow: var(--box-shadow);
+  color: var(--text-color);
+  border-radius: 10px;
+  cursor:auto;
+  
+  
+}
+
+.form-body{
+  input{
+    margin: 10px;
+    box-shadow: var(--box-shadow) ;
+    border: var(--background-color);
+    padding: 10px;
+    cursor: pointer;
+  }
+  padding: 20px;
+  text-align: left;
+  display: block;
+  button{
+    text-align: center;
+    align-items: center;
+    justify-self: space-between;
+    display: flex;
+    border: solid 2px rgb(11, 180, 247);
+  }
 }
 @media (max-width:980px) {
+  .footer{
+    width: 100%;
+  }
+  .App.grid{
+    .stick-navbar{
+      width: 98%;
+    }
+  }
+  .shrinker{
+    display:  none;
+  }
   .colors-cnt-items{
    display: block;
     
@@ -749,6 +871,28 @@ input{
     border-right: solid 2px blue;
     z-index: 100;
     
+  }
+  
+  .navbar.shrink{
+    width: 60%;
+  
+  padding: 10px;
+  justify-content: left;
+  overflow-x: hidden;
+  span, .project-name, .separetor, .down{
+    display: inline-block;
+    
+  }
+  .dropdown-cnt{
+    margin: 10px;
+    padding: 10px;
+  }
+  .navbar-links{
+    width: 95%;
+  }
+  }
+  .navbar.no-shrink{
+    width: 60%;
   }
 
   .navbar.open{
@@ -827,6 +971,10 @@ input{
     width: 90%;
     margin-bottom: 50px;
   }
+  .create-user{
+    
+    width: 100%;
+  }
   
   
 }
@@ -837,9 +985,7 @@ input{
     border-radius: 5px;
     
   }
-  .users-data{
-    width: 100%;
-  }
+  
   .users-main{
     width: 100%;
     padding: 0;
@@ -849,5 +995,9 @@ input{
   }
   .nav-1{
     display: none;
+  }
+  .create-user{
+    
+    width: 100%;
   }
 }

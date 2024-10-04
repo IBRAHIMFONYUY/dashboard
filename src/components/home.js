@@ -3,10 +3,23 @@ import { UserRoundPlus, Users } from "lucide-react";
 import { Line, Bar, Doughnut, PolarArea, Radar } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import { Chart, registerables } from "chart.js";
+import { UsersContext } from "./userscontext";
+import { useContext } from "react";
 import Data from "./data";
+import Form from "./form";
+import Moment from "react-moment";
+import moment from 'moment'
 
 Chart.register(CategoryScale, ...registerables);
-const Home = () => {
+const Home = ({show}) => {
+  const { users } = useContext(UsersContext);
+  const barcolor=(usage)=>{
+    if(usage <=25) return 'rgb(51, 153, 255)'
+    if(usage <=50) return 'rgb(81, 204, 138)'
+    if(usage <=75) return 'rgb(255, 204, 0)'
+    return'rgb(239, 55, 110)'
+
+  }
   const data = {
     labels: [
       "Jan",
@@ -108,7 +121,8 @@ const Home = () => {
             <div className="user-lg">
               <h1>Users</h1>1.232.150 registered users
             </div>
-            <div className="users-btn">
+            
+            <div className="users-btn" onClick={show}>
               <UserRoundPlus /> Add new user
             </div>
           </div>
@@ -128,7 +142,7 @@ const Home = () => {
               </div>
               <div className="">Activity</div>
             </div>
-            {Data.map((user, index) => (
+            {users.map((user, index) => (
               <div className="users-main" key={index}>
                 <div className="users-pic">
                   <img src={user.pic} />
@@ -140,19 +154,19 @@ const Home = () => {
                       className="users-created-under"
                       style={{ color: "rgb(100, 100, 100)" }}
                     >
-                      {user.type} | Registered: {user.registerd}
+                      {user.type} | Registered: {moment(user.registerd).format('MM DD, YYYY')}
                     </div>
                   </div>
                 </div>
                 <div className="users-country">{user.country}</div>
                 <div className="users-usage">
-                <div className="usage-content"><b>{user.usage}</b> {user.interval}</div>
+                <div className="usage-content"><b>{user.usage}%</b> - {moment(user.registerd).fromNow()}</div>
                   <div className="usage-bar">
                     
-                    <div className="users-bar" style={{width:user.usage, background: user.bg}}></div>
+                    <div className="users-bar" style={{width:`${user.usage}%`, background: barcolor(user.usage)}}></div>
                   </div>
                 </div>
-                <div className="users-activity"><b>{user.activity}</b></div>
+                <div className="users-activity"><b>{moment(user.registerd).format('HH:MM:SS')}</b></div>
               </div>
             ))}
           </div>

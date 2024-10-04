@@ -15,6 +15,9 @@ import ChartPage from "./components/charts";
 import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import Watermark from "./components/watermark";
+import Arcodion from "./components/accordion";
+import Form from "./components/form";
+import '@coreui/react'
 
 function App() {
   const [theme, settheme] = useState(false);
@@ -23,9 +26,17 @@ function App() {
   const [showmail, setshowmail] = useState(false);
   const [showlist, setlist] = useState(false);
   const [shownotif, setnotif] = useState(false);
+  const [shrinknav, setshrinknav] = useState(false)
+  const [create, setcreate] = useState(false)
+  const handleshrink=()=>{
+    setshrinknav(!shrinknav)
+  }
   const changetheme = () => {
     settheme(!theme);
   };
+  const showcreate=()=>{
+    setcreate(!create)
+  }
   const opennav = () => {
     setshownav(!shownav);
   };
@@ -55,14 +66,14 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${shrinknav ? 'grid':'not-grid'}`}>
       <div className="navbar-section">
         <OutsideClickHandler
           onOutsideClick={() => {
             setshownav(false);
           }}
         >
-          <NavBar hidenav={hidenav} shownav={shownav} />
+          <NavBar hidenav={hidenav} shownav={shownav} shrinknav={shrinknav} handleshrink={handleshrink} />
         </OutsideClickHandler>
       </div>
       <div className="main-section">
@@ -91,14 +102,24 @@ function App() {
         >
         <LeftNav hideleftnav={hideleftnav} showleftnav={showleftnav} />
         </OutsideClickHandler>
+        <div className={`create-user ${create ? 'open':'close'}`}>
+        <OutsideClickHandler onOutsideClick={()=>{
+          setcreate(false)
+        }}
+        
+        >
+        <Form  create={create}/>
+        </OutsideClickHandler>
+        </div>
         <Watermark/>
         <div className="section">
           <Routes>
-            <Route element={<Home />} path="/" />
+            <Route element={<Home show={showcreate}/>} path="/" />
             <Route element={<Colors />} path="/colors" />
             <Route element={<Topography />} path="/topography" />
             <Route element={<Map />} path="/map" />
             <Route element={<ChartPage />} path="/charts" />
+            <Route element={<Arcodion />} path="/arcodion" />
           </Routes>
         </div>
       </div>

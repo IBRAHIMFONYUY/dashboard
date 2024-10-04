@@ -15,14 +15,17 @@ import {
   ChartPie,
   CalendarDays,
   SquareM,
+  ArrowLeftCircle,
+  ArrowRightCircle
 } from "lucide-react";
 
-const NavBar = ({ shownav, hidenav }) => {
+const NavBar = ({ shownav, hidenav, shrinknav, handleshrink }) => {
   const [dropdown, setdropdown] = useState(false);
   const [dropdown1, setdropdown1] = useState(false);
   const [dropdown2, setdropdown2] = useState(false);
   const [dropdown3, setdropdown3] = useState(false);
   const [dropdown4, setdropdown4] = useState(false);
+  
   const handledropdown = (event) => {
     setdropdown(event.target.value);
   };
@@ -43,9 +46,9 @@ const NavBar = ({ shownav, hidenav }) => {
   };
 
   return (
-    <div className={`navbar ${shownav ? "open" : "close"}`}>
+    <div className={`navbar ${shownav ? "open" : "close"} ${shrinknav ? "shrink" : "no-shrink"}`}>
       <div className="navbar-head">
-       CORE UI
+       <div className="project-name">RAHIMSTUDIOS</div>
       {/* <svg width="125" height="50" viewBox="0 0 125 50" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.6917 22.2496H0V13.6048H22.1079V49.8135H11.6917V22.2496Z" fill="#88F0E5"/>
         <path d="M31.6025 49.7427V31.6029H42.3022V49.7427H31.6025Z" fill="#88F0E5"/>
@@ -55,6 +58,7 @@ const NavBar = ({ shownav, hidenav }) => {
         <div className="hamburger" onClick={hidenav}>
           <X />
         </div>
+        <div className='shrinker' onClick={handleshrink}>{shrinknav ? <ArrowRightCircle/>:<ArrowLeftCircle/>}</div>
       </div>
       <div className="links">
         <Link className="navbar-links" to={"/"}>
@@ -81,7 +85,7 @@ const NavBar = ({ shownav, hidenav }) => {
         </div>
 
         <div className={` dropdown-cnt ${dropdown ? "open" : "close"}`}>
-          <Link className="dropdown">link1</Link>
+          <Link className="dropdown" to={'/arcodion'}>Arcodion</Link>
           <Link className="dropdown">link2</Link>
 
           <hr />

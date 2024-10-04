@@ -24,7 +24,7 @@ const IconsNav=({showmail})=>{
           </section>
 
         ))}   
-        <div className='list-btn'>
+        <div className='list-btn' style={{margin:'20px'}}>
             <button className="list-bntp">Veiw All Messages</button>
         </div>
         </div>

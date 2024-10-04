@@ -11,7 +11,7 @@ const Data=[
         'type':'new',
         'registerd':'Jan 1, 2023',
         'country':'🇨🇲',
-        'usage':'50%',
+        'usage':'50',
         'activity':'10 sec ago',
         'interval':' 04, 2023 - 10, 2023',
         'bg':'rgb(81, 204, 138)'
@@ -23,7 +23,7 @@ const Data=[
         'type':'recuring',
         'registerd':'Jan 10, 2023',
         'country':'🇦🇽',
-        'usage':'22%',
+        'usage':'22',
         'activity':'5 sec ago',
         'interval':' 03, 2023 - 10, 2023',
         'bg':'rgb(51, 153, 255)'
@@ -32,9 +32,9 @@ const Data=[
         "pic":pic3,
         'name':'lynn',
         'type':'new',
-        'registerd':'Apl 5 , 2023',
+        'registerd':'Apr 5 , 2023',
         'country':'🇧🇻',
-        'usage':'75%',
+        'usage':'75',
         'activity':'1 week ago',
         'interval':'01, 2023 - 05, 2023',
         'bg':'rgb(255, 204, 0)'
@@ -43,9 +43,9 @@ const Data=[
         "pic":pic4,
         'name':'jane',
         'type':'new',
-        'registerd':'Apl 25 , 2023',
+        'registerd':'Apr 25 , 2023',
         'country':'🇧🇻',
-        'usage':'98%',
+        'usage':'98',
         'activity':'1 week ago',
         'interval':'04, 2023 - 10, 2023',
         'bg':'rgb(239, 55, 110)'
